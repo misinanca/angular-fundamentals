@@ -4,8 +4,8 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
 
 import { EventDetailsComponent } from "./events/event-details/event-details.component";
 import { EventsListComponent } from "./events/events-list/events-list.component";
-import { EventRouteActivator } from './events/shared/guards/event-route-activator.service';
 import { EventListResolver } from './events/shared/services/events-list-resolver.service';
+import { EventResolver } from './events/shared/services/event-resolver.service';
 
 export const appRoutes:Routes = [
   {
@@ -21,7 +21,7 @@ export const appRoutes:Routes = [
   {
     path: 'events/:id',
     component: EventDetailsComponent,
-    canActivate: [EventRouteActivator],
+    resolve: { event: EventResolver },
   },
   {
     path: '404',

@@ -15,8 +15,8 @@ export class EventDetailsComponent implements OnInit {
   constructor(private eventsService: EventsService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      this.event = this.eventsService.getEvent(+params['id']);
+    this.route.data.forEach((data: any) => {
+      this.event = data['event'];
     });
   }
 }
